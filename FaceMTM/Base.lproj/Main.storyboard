@@ -210,7 +210,7 @@
                                 <rect key="frame" x="0.0" y="28" width="320" height="85"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1Yd-8q-6uc" id="bCF-Mg-NEP">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="84"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="84.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XA2-YH-eH5">
@@ -237,6 +237,7 @@
                                     <outlet property="cargoFuncionarioCell" destination="nRV-9I-ADN" id="xe3-V2-0sv"/>
                                     <outlet property="imgFuncionarioCell" destination="XA2-YH-eH5" id="DGH-2C-Gec"/>
                                     <outlet property="nomeFuncionarioCell" destination="saz-BB-ErP" id="nrd-4j-ska"/>
+                                    <segue destination="dAJ-bO-NAl" kind="show" identifier="detalheFuncionario" id="qrY-Ul-GFN"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -249,6 +250,177 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="doR-11-Z5y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2317.5" y="789.08450704225356"/>
+        </scene>
+        <!--Detalhe Funcionario View Controller-->
+        <scene sceneID="byI-H6-Ruy">
+            <objects>
+                <viewController id="dAJ-bO-NAl" customClass="DetalheFuncionarioViewController" customModule="FaceMTM" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="4i4-JD-hIu"/>
+                        <viewControllerLayoutGuide type="bottom" id="nEs-rz-njK"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="wFr-Zc-7Ee">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ICy-nC-tLF">
+                                <rect key="frame" x="14" y="42" width="293" height="484"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Omx-aN-Qi7">
+                                        <rect key="frame" x="32" y="0.0" width="229" height="225"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="229" id="Kd7-eY-TFY"/>
+                                            <constraint firstAttribute="height" constant="225" id="NW5-8O-xBa"/>
+                                        </constraints>
+                                    </imageView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="9Rz-1M-nzA">
+                                        <rect key="frame" x="0.0" y="233" width="293" height="125"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Kvr-mf-XM7">
+                                                <rect key="frame" x="0.0" y="0.0" width="293" height="21"/>
+                                                <subviews>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-person-128" translatesAutoresizingMaskIntoConstraints="NO" id="xOg-gh-TFY">
+                                                        <rect key="frame" x="0.0" y="0.0" width="21" height="21"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="21" id="jEF-bX-RiK"/>
+                                                            <constraint firstAttribute="width" constant="21" id="w7C-1H-yaP"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nome Funcionario" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Poe-1f-Jl1">
+                                                        <rect key="frame" x="26" y="0.0" width="267" height="21"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="21" id="XFj-O8-2ZO"/>
+                                                            <constraint firstAttribute="width" constant="267" id="pB8-N9-DQw"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="uvw-0F-BSS">
+                                                <rect key="frame" x="0.0" y="26" width="293" height="21"/>
+                                                <subviews>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="firm-case-diplomat-documents-director-512" translatesAutoresizingMaskIntoConstraints="NO" id="gco-Ai-hbR">
+                                                        <rect key="frame" x="0.0" y="0.0" width="21" height="21"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="21" id="Nwg-Hn-Mwm"/>
+                                                            <constraint firstAttribute="height" constant="21" id="mtQ-8D-Mzd"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cargo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TCD-rs-7D8">
+                                                        <rect key="frame" x="26" y="0.0" width="267" height="21"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="267" id="emo-zM-yiG"/>
+                                                            <constraint firstAttribute="height" constant="21" id="jTn-yg-W7d"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Bya-9i-ZLj">
+                                                <rect key="frame" x="0.0" y="52" width="293" height="21"/>
+                                                <subviews>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="7309-200" translatesAutoresizingMaskIntoConstraints="NO" id="EcE-Z6-SQh">
+                                                        <rect key="frame" x="0.0" y="0.0" width="21" height="21"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="21" id="1or-VP-9QA"/>
+                                                            <constraint firstAttribute="height" constant="21" id="Ujz-21-Ie5"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nascimento" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aq8-wZ-7Ie">
+                                                        <rect key="frame" x="26" y="0.0" width="267" height="21"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="267" id="XZ6-Qj-etd"/>
+                                                            <constraint firstAttribute="height" constant="21" id="pNW-IH-t9Z"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="VB8-36-jek">
+                                                <rect key="frame" x="0.0" y="78" width="293" height="21"/>
+                                                <subviews>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="phone-symbol-2-256x256" translatesAutoresizingMaskIntoConstraints="NO" id="3s5-5k-7QN">
+                                                        <rect key="frame" x="0.0" y="0.0" width="21" height="21"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="21" id="Ki0-M9-c7b"/>
+                                                            <constraint firstAttribute="width" constant="21" id="yKJ-yU-eXo"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Telefone" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="grt-i1-Nte">
+                                                        <rect key="frame" x="26" y="0.0" width="267" height="21"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="267" id="DmT-0c-nzR"/>
+                                                            <constraint firstAttribute="height" constant="21" id="Obe-Ye-aL6"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                        <color key="textColor" red="0.10190574080000001" green="0.81776982549999999" blue="0.78313690420000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="highlightedColor" red="0.10190574080000001" green="0.81776982549999999" blue="0.78313690420000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="ghy-8Y-AtW">
+                                                <rect key="frame" x="0.0" y="104" width="293" height="21"/>
+                                                <subviews>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="At-sign" translatesAutoresizingMaskIntoConstraints="NO" id="51f-Ub-5JZ">
+                                                        <rect key="frame" x="0.0" y="0.0" width="21" height="21"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="21" id="I84-AT-1Ah"/>
+                                                            <constraint firstAttribute="height" constant="21" id="LKP-ZU-jCU"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="E-mail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dzA-UZ-H5T">
+                                                        <rect key="frame" x="26" y="0.0" width="267" height="21"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="21" id="9Hx-WY-qNF"/>
+                                                            <constraint firstAttribute="width" constant="267" id="goB-u2-U6l"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                        <color key="textColor" red="0.10190574080000001" green="0.81776982549999999" blue="0.78313690420000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="highlightedColor" red="0.10190574080000001" green="0.81776982549999999" blue="0.78313690420000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t7L-m3-TDX">
+                                        <rect key="frame" x="2" y="366" width="289" height="118"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="118" id="QpE-1v-1aK"/>
+                                            <constraint firstAttribute="width" constant="289" id="Vlt-sC-c73"/>
+                                        </constraints>
+                                        <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ICy-nC-tLF" firstAttribute="centerY" secondItem="wFr-Zc-7Ee" secondAttribute="centerY" id="LlD-6X-FfM"/>
+                            <constraint firstItem="ICy-nC-tLF" firstAttribute="centerX" secondItem="wFr-Zc-7Ee" secondAttribute="centerX" id="a15-rh-5NR"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="cargoFuncionario" destination="TCD-rs-7D8" id="vAi-Su-hCf"/>
+                        <outlet property="descricaoFuncionario" destination="t7L-m3-TDX" id="X1s-of-s6h"/>
+                        <outlet property="emailFuncionario" destination="dzA-UZ-H5T" id="jrW-pZ-nwj"/>
+                        <outlet property="imagemFuncionario" destination="Omx-aN-Qi7" id="BQO-iF-MmG"/>
+                        <outlet property="nascimentoFuncionario" destination="Aq8-wZ-7Ie" id="RD5-e9-Y6U"/>
+                        <outlet property="nomeFuncionario" destination="Poe-1f-Jl1" id="Wuc-0z-9sx"/>
+                        <outlet property="telefoneFuncionario" destination="grt-i1-Nte" id="pfp-xF-f50"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4fq-Ga-j0h" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3200.625" y="791.19718309859161"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="jv1-bE-jQq">
@@ -270,10 +442,15 @@
         </scene>
     </scenes>
     <resources>
+        <image name="7309-200" width="200" height="200"/>
         <image name="Android_robot" width="512" height="609"/>
         <image name="Apple_logo_black.svg" width="384" height="384"/>
+        <image name="At-sign" width="150" height="150"/>
         <image name="cordova_bot-267x300" width="133" height="150"/>
+        <image name="firm-case-diplomat-documents-director-512" width="256" height="256"/>
+        <image name="icon-person-128" width="64" height="64"/>
         <image name="logo-mtm" width="360" height="125"/>
+        <image name="phone-symbol-2-256x256" width="128" height="128"/>
         <image name="xamagon" width="304" height="304"/>
     </resources>
     <inferredMetricsTieBreakers>

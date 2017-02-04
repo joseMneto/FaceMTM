@@ -21,7 +21,7 @@ class ListaFuncionariosViewController: UITableViewController {
         
         var funcionario : Funcionario
         
-        funcionario = Funcionario(nome: "Eduardo Lacerda", cargo: "Desenvolvedor Jr.", imagem: #imageLiteral(resourceName: "Apple_logo_black.svg"))
+        funcionario = Funcionario(nome: "Eduardo Lacerda", cargo: "Desenvolvedor Jr.", imagem: #imageLiteral(resourceName: "Apple_logo_black.svg"), telefone: "71999625707", nascimento: "29.05.1986", email: "dudu.lacerda@gmail.com", descricao: "Apaixonado por tecnologia, ciclista nas horas livres, curioso com as surpresas e maravilhas da ciência. Objetivo seguir a carreira de desenvolvimento de software mobile e Internet das Coisas, criando e desenvolvendo sistemas e dispositivos para ajudar pessoas.")
         funcionariosLista.append(funcionario)
     }
     
@@ -41,6 +41,16 @@ class ListaFuncionariosViewController: UITableViewController {
         celula.cargoFuncionarioCell.text = funcionario.cargo
         
         return celula
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "detalheFuncionario" {
+            let viewDestino = segue.destination as! DetalheFuncionarioViewController
+            
+            if let funcionarioSelecionado = self.tableView.indexPathForSelectedRow {
+                viewDestino.funcionario = funcionariosLista[funcionarioSelecionado.row]
+            }
+        }
     }
     
     

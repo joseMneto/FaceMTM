@@ -13,9 +13,18 @@ class Funcionario {
     var cargo: String!
     var imagem: UIImage!
     
-    init(nome: String, cargo: String, imagem: UIImage) {
+    var telefone: String!
+    var nascimento: String!
+    var email: String!
+    var descricao: String!
+    
+    init(nome: String, cargo: String, imagem: UIImage, telefone: String, nascimento: String, email: String, descricao: String) {
         self.nome = nome
         self.cargo = cargo
         self.imagem = imagem
+        self.telefone = telefone
+        self.nascimento = nascimento
+        self.email = email
+        self.descricao = descricao
     }
 }
