@@ -17,6 +17,7 @@
 		105FCDB11E42B62000C8730E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 105FCDAF1E42B62000C8730E /* LaunchScreen.storyboard */; };
 		10B723181E45384000EE36CC /* DetalheFuncionarioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B723171E45384000EE36CC /* DetalheFuncionarioViewController.swift */; };
 		10B7231A1E454D5300EE36CC /* MailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B723191E454D5300EE36CC /* MailController.swift */; };
+		25A9C4354CAC2535C28F6A88 /* Pods_FaceMTM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2898B4137022EDA782FA711 /* Pods_FaceMTM.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,9 @@
 		105FCDB21E42B62000C8730E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		10B723171E45384000EE36CC /* DetalheFuncionarioViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetalheFuncionarioViewController.swift; sourceTree = "<group>"; };
 		10B723191E454D5300EE36CC /* MailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MailController.swift; sourceTree = "<group>"; };
+		72C08C55460BFD4BAF69E1F4 /* Pods-FaceMTM.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FaceMTM.release.xcconfig"; path = "Pods/Target Support Files/Pods-FaceMTM/Pods-FaceMTM.release.xcconfig"; sourceTree = "<group>"; };
+		C2898B4137022EDA782FA711 /* Pods_FaceMTM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FaceMTM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DF63C059691A8F79F9202147 /* Pods-FaceMTM.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FaceMTM.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FaceMTM/Pods-FaceMTM.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25A9C4354CAC2535C28F6A88 /* Pods_FaceMTM.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,6 +55,8 @@
 			children = (
 				105FCDA51E42B62000C8730E /* FaceMTM */,
 				105FCDA41E42B62000C8730E /* Products */,
+				E0BDE6325B3BE551CD9C1BBE /* Pods */,
+				A19F6E0D15BBE2FFA5CB9A2D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -79,6 +86,23 @@
 			path = FaceMTM;
 			sourceTree = "<group>";
 		};
+		A19F6E0D15BBE2FFA5CB9A2D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C2898B4137022EDA782FA711 /* Pods_FaceMTM.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E0BDE6325B3BE551CD9C1BBE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DF63C059691A8F79F9202147 /* Pods-FaceMTM.debug.xcconfig */,
+				72C08C55460BFD4BAF69E1F4 /* Pods-FaceMTM.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -86,9 +110,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 105FCDB51E42B62000C8730E /* Build configuration list for PBXNativeTarget "FaceMTM" */;
 			buildPhases = (
+				2329A7AF991FD7DD346D7260 /* [CP] Check Pods Manifest.lock */,
 				105FCD9F1E42B62000C8730E /* Sources */,
 				105FCDA01E42B62000C8730E /* Frameworks */,
 				105FCDA11E42B62000C8730E /* Resources */,
+				2F27F2164F7ADEEAF5D3BB67 /* [CP] Embed Pods Frameworks */,
+				0D61A570C628022DB189AF21 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -146,6 +173,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0D61A570C628022DB189AF21 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FaceMTM/Pods-FaceMTM-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2329A7AF991FD7DD346D7260 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		2F27F2164F7ADEEAF5D3BB67 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FaceMTM/Pods-FaceMTM-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		105FCD9F1E42B62000C8730E /* Sources */ = {
@@ -277,6 +352,7 @@
 		};
 		105FCDB61E42B62000C8730E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DF63C059691A8F79F9202147 /* Pods-FaceMTM.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -294,6 +370,7 @@
 		};
 		105FCDB71E42B62000C8730E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 72C08C55460BFD4BAF69E1F4 /* Pods-FaceMTM.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
