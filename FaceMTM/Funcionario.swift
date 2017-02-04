@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class Funcionario {
     var nome: String!
@@ -18,13 +19,18 @@ class Funcionario {
     var email: String!
     var descricao: String!
     
-    init(nome: String, cargo: String, imagem: UIImage, telefone: String, nascimento: String, email: String, descricao: String) {
-        self.nome = nome
-        self.cargo = cargo
-        self.imagem = imagem
-        self.telefone = telefone
-        self.nascimento = nascimento
-        self.email = email
-        self.descricao = descricao
+    init(snapshot: FIRDataSnapshot) {
+        
+        let key = snapshot.key
+        
+        let snapshotValue = snapshot.value as! [String: AnyObject]
+        
+        self.nome = key
+        self.cargo = snapshotValue["Cargo"] as! String
+        self.imagem = #imageLiteral(resourceName: "Apple_logo_black.svg")
+        self.telefone = "71 999625707"
+        self.nascimento = snapshotValue["Nascimento"] as! String
+        self.email = "teste@email"
+        self.descricao = "The best of the best"
     }
 }

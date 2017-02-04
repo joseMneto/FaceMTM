@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class ListaFuncionariosViewController: UITableViewController {
     
@@ -14,15 +15,29 @@ class ListaFuncionariosViewController: UITableViewController {
     
     var funcionariosLista : [Funcionario] = []
     
+    let firebase = FIRDatabase.database().reference()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.navigationItem.title = telaEscolhida
         
-        var funcionario : Funcionario
+        let noFuncionarios = firebase.child("iOS")
         
-        funcionario = Funcionario(nome: "Eduardo Lacerda", cargo: "Desenvolvedor Jr.", imagem: #imageLiteral(resourceName: "Apple_logo_black.svg"), telefone: "71999625707", nascimento: "29.05.1986", email: "dudu.lacerda@gmail.com", descricao: "Apaixonado por tecnologia, ciclista nas horas livres, curioso com as surpresas e maravilhas da ciência. Objetivo seguir a carreira de desenvolvimento de software mobile e Internet das Coisas, criando e desenvolvendo sistemas e dispositivos para ajudar pessoas.")
-        funcionariosLista.append(funcionario)
+        noFuncionarios.observe(FIRDataEventType.value, with: { (dados) in
+            
+            var listaFuncionarios: [Funcionario] = []
+            
+            for node in dados.children {
+                
+                let funcionario = Funcionario(snapshot: node as! FIRDataSnapshot)
+                listaFuncionarios.append(funcionario)
+                print(funcionario.nome)
+            }
+            
+            self.funcionariosLista = listaFuncionarios
+            self.tableView.reloadData()
+        })
     }
     
     
