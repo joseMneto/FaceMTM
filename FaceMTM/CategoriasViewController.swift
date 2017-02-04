@@ -36,7 +36,7 @@ class CategoriasViewController: UIViewController {
             case "cordova":
                 viewControllerDestino.telaEscolhida = "Cordova Devs"
             default:
-                viewControllerDestino.telaEscolhida = "MTM Tecnologia"
+                return
             }
         }
     }

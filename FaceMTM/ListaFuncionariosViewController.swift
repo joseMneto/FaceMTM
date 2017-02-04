@@ -22,7 +22,7 @@ class ListaFuncionariosViewController: UITableViewController {
         
         self.navigationItem.title = telaEscolhida
         
-        let noFuncionarios = firebase.child("iOS")
+        let noFuncionarios = firebase.child(telaEscolhida)
         
         noFuncionarios.observe(FIRDataEventType.value, with: { (dados) in
             

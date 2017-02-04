@@ -28,9 +28,9 @@ class Funcionario {
         self.nome = key
         self.cargo = snapshotValue["Cargo"] as! String
         self.imagem = #imageLiteral(resourceName: "Apple_logo_black.svg")
-        self.telefone = "71 999625707"
+        self.telefone = snapshotValue["Telefone"] as! String
         self.nascimento = snapshotValue["Nascimento"] as! String
-        self.email = "teste@email"
-        self.descricao = "The best of the best"
+        self.email = snapshotValue["Email"] as! String
+        self.descricao = snapshotValue["Descricao"] as! String
     }
 }
