@@ -55,6 +55,7 @@ class ListaFuncionariosViewController: UITableViewController {
             //Verifica se exite imagem em cache
             if let imagem = cache.object(forKey: indexPath.row as AnyObject) {
                 celula.imgFuncionarioCell.image = (imagem as! UIImage)
+                funcionario.imagem = (imagem as! UIImage)
             } else {
                 
                 let imageRef = storage.reference(forURL: funcionario.imagemUrl!)
@@ -79,7 +80,7 @@ class ListaFuncionariosViewController: UITableViewController {
                     }).resume()
                 }
             }// Else teste cache
-        }// Fim caso exita imagemURL no obejto funcionario
+        }// Fim caso exista imagemURL no obejto funcionario
         
         return celula
         

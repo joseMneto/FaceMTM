@@ -19,7 +19,7 @@
 		10623AA31E474BD800203FC3 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10623AA21E474BD800203FC3 /* LoginViewController.swift */; };
 		10B723181E45384000EE36CC /* DetalheFuncionarioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B723171E45384000EE36CC /* DetalheFuncionarioViewController.swift */; };
 		10B7231A1E454D5300EE36CC /* MailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B723191E454D5300EE36CC /* MailController.swift */; };
-		25A9C4354CAC2535C28F6A88 /* Pods_FaceMTM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2898B4137022EDA782FA711 /* Pods_FaceMTM.framework */; };
+		749113CE7C5BEA4DA5ADA484 /* Pods_FaceMTM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2898B4137022EDA782FA711 /* Pods_FaceMTM.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +35,7 @@
 		105FCDB01E42B62000C8730E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		105FCDB21E42B62000C8730E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		10623AA21E474BD800203FC3 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		10AF6F521E4795A8009B6988 /* FaceMTM.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FaceMTM.entitlements; sourceTree = "<group>"; };
 		10B723171E45384000EE36CC /* DetalheFuncionarioViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetalheFuncionarioViewController.swift; sourceTree = "<group>"; };
 		10B723191E454D5300EE36CC /* MailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MailController.swift; sourceTree = "<group>"; };
 		72C08C55460BFD4BAF69E1F4 /* Pods-FaceMTM.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FaceMTM.release.xcconfig"; path = "Pods/Target Support Files/Pods-FaceMTM/Pods-FaceMTM.release.xcconfig"; sourceTree = "<group>"; };
@@ -47,7 +48,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				25A9C4354CAC2535C28F6A88 /* Pods_FaceMTM.framework in Frameworks */,
+				749113CE7C5BEA4DA5ADA484 /* Pods_FaceMTM.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,6 +76,7 @@
 		105FCDA51E42B62000C8730E /* FaceMTM */ = {
 			isa = PBXGroup;
 			children = (
+				10AF6F521E4795A8009B6988 /* FaceMTM.entitlements */,
 				104FA8B61E440C39003606AF /* Funcionario.swift */,
 				105FCDA61E42B62000C8730E /* AppDelegate.swift */,
 				10B723191E454D5300EE36CC /* MailController.swift */,
@@ -146,6 +148,11 @@
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 64GUDQRJRU;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -363,6 +370,7 @@
 			baseConfigurationReference = DF63C059691A8F79F9202147 /* Pods-FaceMTM.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = FaceMTM/FaceMTM.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 64GUDQRJRU;
 				INFOPLIST_FILE = FaceMTM/Info.plist;
@@ -381,6 +389,7 @@
 			baseConfigurationReference = 72C08C55460BFD4BAF69E1F4 /* Pods-FaceMTM.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = FaceMTM/FaceMTM.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 64GUDQRJRU;
 				INFOPLIST_FILE = FaceMTM/Info.plist;

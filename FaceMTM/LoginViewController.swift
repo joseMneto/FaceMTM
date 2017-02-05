@@ -8,15 +8,24 @@
 
 import UIKit
 import Firebase
+import FBSDKLoginKit
 
-class LoginViewController: UIViewController {
+
+class LoginViewController: UIViewController , FBSDKLoginButtonDelegate{
     
     
     @IBOutlet weak var senhaTextField: UITextField!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        let loginButton = FBSDKLoginButton()
+        
+        view.addSubview(loginButton)
+        loginButton.frame = CGRect(x: 16, y: 50, width: view.frame.width - 32, height: 50)
+        
+        loginButton.delegate = self
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -40,10 +49,26 @@ class LoginViewController: UIViewController {
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "Home")
             self.present(vc!, animated: true, completion: nil)
             
-            
-            
         })
         
+    }
+    
+    func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
+        print("FaceBook logout")
+    }
+    
+    func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
+        
+        if error != nil {
+            print("Erro Login Facebook")
+            return
+        }
+        
+        if result.isCancelled != true {
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "Home")
+            self.present(vc!, animated: true, completion: nil)
+        }
+    
     }
     
     //Toque na tela
