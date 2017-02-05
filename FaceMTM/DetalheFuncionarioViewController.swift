@@ -25,7 +25,7 @@ class DetalheFuncionarioViewController: UIViewController, MFMailComposeViewContr
     
     override func viewDidLoad() {
         
-        self.imagemFuncionario.image = UIImage(data: funcionario.imageData)
+        self.imagemFuncionario.image = funcionario.imagem
         self.nomeFuncionario.text = funcionario.nome
         self.cargoFuncionario.text = funcionario.cargo
         self.nascimentoFuncionario.text = funcionario.nascimento

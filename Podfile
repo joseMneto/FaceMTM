@@ -10,5 +10,6 @@ target 'FaceMTM' do
   pod 'Firebase'
   pod 'Firebase/Database'
   pod 'Firebase/Storage'
+  pod 'Firebase/Auth'
 
 end

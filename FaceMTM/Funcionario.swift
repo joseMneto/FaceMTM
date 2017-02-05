@@ -13,7 +13,7 @@ class Funcionario {
     var nome: String!
     var cargo: String!
     var imagemUrl: String!
-    var imageData: Data!
+    var imagem: UIImage!
     
     var telefone: String!
     var nascimento: String!
@@ -29,6 +29,7 @@ class Funcionario {
         self.nome = key
         self.cargo = snapshotValue["Cargo"] as! String
         self.imagemUrl = snapshotValue["Imagem"] as! String
+        self.imagem = #imageLiteral(resourceName: "personIcon")
         self.telefone = snapshotValue["Telefone"] as! String
         self.nascimento = snapshotValue["Nascimento"] as! String
         self.email = snapshotValue["Email"] as! String

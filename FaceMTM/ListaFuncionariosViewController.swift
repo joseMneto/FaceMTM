@@ -23,10 +23,12 @@ class ListaFuncionariosViewController: UITableViewController {
         super.viewDidLoad()
     
         self.navigationItem.title = telaEscolhida
-        
-        carregarDadosFirebase()
-        
-        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        let noFuncionarios = firebase.child(telaEscolhida)
+        carregarDadosFirebase(noFuncionarios)
     }
     
     
@@ -40,39 +42,43 @@ class ListaFuncionariosViewController: UITableViewController {
         
         let celula = tableView.dequeueReusableCell(withIdentifier: "funcionariosCell", for: indexPath) as! FuncionarioCelula
         
-        let imageRef = storage.reference(forURL: funcionario.imagemUrl)
+        celula.imgFuncionarioCell.image = funcionario.imagem
+        celula.nomeFuncionarioCell.text = funcionario.nome
+        celula.cargoFuncionarioCell.text = funcionario.cargo
         
-        imageRef.downloadURL { (url, error) in
-            if (error != nil){
-                print(error!)
-                return
-            }
+        if funcionario.imagemUrl != "" {
             
-            URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
+            let imageRef = storage.reference(forURL: funcionario.imagemUrl!)
+            
+            imageRef.downloadURL { (url, error) in
                 if (error != nil){
                     print(error!)
                     return
                 }
                 
-                DispatchQueue.main.async(execute: {() -> Void in
-                    print("Start Download")
-                    funcionario.imageData = data!
-                    celula.imgFuncionarioCell.image = UIImage(data: funcionario.imageData)
-                    print("Finish Download")
-                })
-            }).resume()
+                URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
+                    if (error != nil){
+                        print(error!)
+                        return
+                    }
+                    
+                    DispatchQueue.main.async(execute: {() -> Void in
+                        funcionario.imagem = UIImage(data: data!)
+                        celula.imgFuncionarioCell.image = funcionario.imagem
+                    })
+                }).resume()
+
+            }
         }
         
-        celula.nomeFuncionarioCell.text = funcionario.nome
-        celula.cargoFuncionarioCell.text = funcionario.cargo
-        
         return celula
+        
     }
     
-    func carregarDadosFirebase() {
-        let noFuncionarios = firebase.child(telaEscolhida)
+    func carregarDadosFirebase(_ nofuncionarios: FIRDatabaseReference) {
         
-        noFuncionarios.observe(FIRDataEventType.value, with: { (dados) in
+        
+        nofuncionarios.observe(FIRDataEventType.value, with: { (dados) in
             
             var listaFuncionarios: [Funcionario] = []
             
