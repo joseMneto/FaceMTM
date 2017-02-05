@@ -12,7 +12,8 @@ import Firebase
 class Funcionario {
     var nome: String!
     var cargo: String!
-    var imagem: UIImage!
+    var imagemUrl: String!
+    var imageData: Data!
     
     var telefone: String!
     var nascimento: String!
@@ -27,7 +28,7 @@ class Funcionario {
         
         self.nome = key
         self.cargo = snapshotValue["Cargo"] as! String
-        self.imagem = #imageLiteral(resourceName: "Apple_logo_black.svg")
+        self.imagemUrl = snapshotValue["Imagem"] as! String
         self.telefone = snapshotValue["Telefone"] as! String
         self.nascimento = snapshotValue["Nascimento"] as! String
         self.email = snapshotValue["Email"] as! String
