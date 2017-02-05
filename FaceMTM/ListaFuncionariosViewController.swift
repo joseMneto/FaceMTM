@@ -19,10 +19,14 @@ class ListaFuncionariosViewController: UITableViewController {
     
     let storage = FIRStorage.storage()
     
+    var cache: NSCache <AnyObject, AnyObject>! = nil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     
         self.navigationItem.title = telaEscolhida
+        
+        self.cache = NSCache()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -48,28 +52,34 @@ class ListaFuncionariosViewController: UITableViewController {
         
         if funcionario.imagemUrl != "" {
             
-            let imageRef = storage.reference(forURL: funcionario.imagemUrl!)
-            
-            imageRef.downloadURL { (url, error) in
-                if (error != nil){
-                    print(error!)
-                    return
-                }
+            //Verifica se exite imagem em cache
+            if let imagem = cache.object(forKey: indexPath.row as AnyObject) {
+                celula.imgFuncionarioCell.image = (imagem as! UIImage)
+            } else {
                 
-                URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
+                let imageRef = storage.reference(forURL: funcionario.imagemUrl!)
+                
+                imageRef.downloadURL { (url, error) in
                     if (error != nil){
                         print(error!)
                         return
                     }
                     
-                    DispatchQueue.main.async(execute: {() -> Void in
-                        funcionario.imagem = UIImage(data: data!)
-                        celula.imgFuncionarioCell.image = funcionario.imagem
-                    })
-                }).resume()
-
-            }
-        }
+                    URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
+                        if (error != nil){
+                            print(error!)
+                            return
+                        }
+                        
+                        DispatchQueue.main.async(execute: {() -> Void in
+                            funcionario.imagem = UIImage(data: data!)
+                            celula.imgFuncionarioCell.image = funcionario.imagem
+                            self.cache.setObject(funcionario.imagem, forKey: indexPath.row as AnyObject)
+                        })
+                    }).resume()
+                }
+            }// Else teste cache
+        }// Fim caso exita imagemURL no obejto funcionario
         
         return celula
         
