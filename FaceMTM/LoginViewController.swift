@@ -11,7 +11,7 @@ import Firebase
 import FBSDKLoginKit
 
 
-class LoginViewController: UIViewController , FBSDKLoginButtonDelegate{
+class LoginViewController: UIViewController , FBSDKLoginButtonDelegate, GIDSignInUIDelegate, GIDSignInDelegate{
     
     
     @IBOutlet weak var senhaTextField: UITextField!
@@ -19,18 +19,28 @@ class LoginViewController: UIViewController , FBSDKLoginButtonDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let loginButton = FBSDKLoginButton()
+        // Facebook Login
+        let loginButtonFB = FBSDKLoginButton()
+        view.addSubview(loginButtonFB)
+        loginButtonFB.frame = CGRect(x: 16, y: 50, width: view.frame.width - 32, height: 50)
+        loginButtonFB.delegate = self
         
-        view.addSubview(loginButton)
-        loginButton.frame = CGRect(x: 16, y: 50, width: view.frame.width - 32, height: 50)
         
-        loginButton.delegate = self
+        //Google Login
+        
+        let loginButtonGG = GIDSignInButton()
+        view.addSubview(loginButtonGG)
+        loginButtonGG.frame = CGRect(x: 16, y: 100, width: view.frame.width - 32, height: 50)
+        GIDSignIn.sharedInstance().uiDelegate = self
+        GIDSignIn.sharedInstance().delegate = self
         
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
             }
+    
+    // MARK: Email Login
 
     @IBAction func realizarLogin() {
         
@@ -46,12 +56,13 @@ class LoginViewController: UIViewController , FBSDKLoginButtonDelegate{
                 return
             }
             
-            let vc = self.storyboard?.instantiateViewController(withIdentifier: "Home")
-            self.present(vc!, animated: true, completion: nil)
+            self.goToHomeView()
             
         })
         
     }
+    
+    // MARK: Facebook Login
     
     func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
         print("FaceBook logout")
@@ -65,10 +76,30 @@ class LoginViewController: UIViewController , FBSDKLoginButtonDelegate{
         }
         
         if result.isCancelled != true {
-            let vc = self.storyboard?.instantiateViewController(withIdentifier: "Home")
-            self.present(vc!, animated: true, completion: nil)
+            goToHomeView()
         }
+        
+    }
     
+    // MARK: Google Login
+    
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+        if error != nil {
+            print("Error Login Google")
+            return
+        }
+        
+        goToHomeView()
+        
+    }
+    
+    func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
+        print("Log off Google")
+    }
+    
+    func goToHomeView() {
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "Home")
+        self.present(vc!, animated: true, completion: nil)
     }
     
     //Toque na tela

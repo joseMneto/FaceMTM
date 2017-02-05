@@ -35,6 +35,7 @@
 		105FCDB01E42B62000C8730E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		105FCDB21E42B62000C8730E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		10623AA21E474BD800203FC3 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		10A363451E47ABAD00A19445 /* FaceMTM-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FaceMTM-Bridging-Header.h"; sourceTree = "<group>"; };
 		10AF6F521E4795A8009B6988 /* FaceMTM.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FaceMTM.entitlements; sourceTree = "<group>"; };
 		10B723171E45384000EE36CC /* DetalheFuncionarioViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetalheFuncionarioViewController.swift; sourceTree = "<group>"; };
 		10B723191E454D5300EE36CC /* MailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MailController.swift; sourceTree = "<group>"; };
@@ -90,6 +91,7 @@
 				105FCDAF1E42B62000C8730E /* LaunchScreen.storyboard */,
 				105FCDB21E42B62000C8730E /* Info.plist */,
 				100CF4571E4640EE0076B238 /* GoogleService-Info.plist */,
+				10A363451E47ABAD00A19445 /* FaceMTM-Bridging-Header.h */,
 			);
 			path = FaceMTM;
 			sourceTree = "<group>";
@@ -147,6 +149,7 @@
 					105FCDA21E42B62000C8730E = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 64GUDQRJRU;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Keychain = {
@@ -370,6 +373,7 @@
 			baseConfigurationReference = DF63C059691A8F79F9202147 /* Pods-FaceMTM.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = FaceMTM/FaceMTM.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 64GUDQRJRU;
@@ -380,6 +384,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "FaceMTM/FaceMTM-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -389,6 +395,7 @@
 			baseConfigurationReference = 72C08C55460BFD4BAF69E1F4 /* Pods-FaceMTM.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = FaceMTM/FaceMTM.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 64GUDQRJRU;
@@ -397,6 +404,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = udemy.eduardo.Signos;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "FaceMTM/FaceMTM-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
