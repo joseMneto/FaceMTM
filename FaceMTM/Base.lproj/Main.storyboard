@@ -6,6 +6,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -21,25 +22,74 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="t7O-Kf-cSF">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="digite sua senha" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="t7O-Kf-cSF">
                                 <rect key="frame" x="16" y="269" width="288" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9AB-gc-WK3">
-                                <rect key="frame" x="141" y="329" width="38" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Login"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="digite seu email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="na1-xi-Xc5">
+                                <rect key="frame" x="16" y="222" width="288" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                            </textField>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="r2d-Rw-m3D">
+                                <rect key="frame" x="16" y="179" width="183" height="35"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="email-icon--100-flat-vol-2-iconset--graphicloads-18" translatesAutoresizingMaskIntoConstraints="NO" id="tdO-te-6D2">
+                                        <rect key="frame" x="0.0" y="0.0" width="35" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="35" id="BeD-rG-xYd"/>
+                                            <constraint firstAttribute="width" constant="35" id="eRC-Tl-o35"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="use email to login:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vOT-a9-f3e">
+                                        <rect key="frame" x="45" y="0.0" width="138" height="35"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9AB-gc-WK3">
+                                <rect key="frame" x="130" y="307" width="60" height="30"/>
+                                <color key="backgroundColor" red="0.11838381737470627" green="0.4775240421295166" blue="0.8429216742515564" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="9Ne-TK-l3r"/>
+                                    <constraint firstAttribute="width" constant="60" id="oLB-1X-mh0"/>
+                                </constraints>
+                                <state key="normal" title="Login">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="12"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="realizarLogin" destination="Zoa-hj-5zt" eventType="touchUpInside" id="Ktr-1c-eAa"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="na1-xi-Xc5" secondAttribute="trailing" id="28K-9Z-OIj"/>
+                            <constraint firstItem="na1-xi-Xc5" firstAttribute="top" secondItem="Gyk-ui-DhA" secondAttribute="bottom" constant="202" id="2gn-RR-b1Z"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="r2d-Rw-m3D" secondAttribute="leading" id="GPs-Nh-Zbj"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="t7O-Kf-cSF" secondAttribute="trailing" id="OFy-Ie-0mX"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="t7O-Kf-cSF" secondAttribute="leading" id="S9q-ub-TFY"/>
+                            <constraint firstItem="9AB-gc-WK3" firstAttribute="leading" secondItem="9VL-U6-5DZ" secondAttribute="leadingMargin" constant="114" id="bfc-q0-Swy"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="9AB-gc-WK3" secondAttribute="trailing" constant="114" id="gyX-oB-Ap9"/>
+                            <constraint firstItem="t7O-Kf-cSF" firstAttribute="top" secondItem="na1-xi-Xc5" secondAttribute="bottom" constant="17" id="l9c-nc-lzb"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="na1-xi-Xc5" secondAttribute="leading" id="oea-Tw-zrd"/>
+                            <constraint firstItem="9AB-gc-WK3" firstAttribute="top" secondItem="t7O-Kf-cSF" secondAttribute="bottom" constant="8" id="rV3-Jf-ms2"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="r2d-Rw-m3D" secondAttribute="trailing" constant="105" id="s0p-Mb-rMI"/>
+                            <constraint firstItem="na1-xi-Xc5" firstAttribute="top" secondItem="r2d-Rw-m3D" secondAttribute="bottom" constant="8" id="tuI-eE-fx1"/>
+                        </constraints>
                     </view>
                     <connections>
+                        <outlet property="emailTextField" destination="na1-xi-Xc5" id="REX-FQ-TEm"/>
                         <outlet property="senhaTextField" destination="t7O-Kf-cSF" id="rZJ-cM-X2Q"/>
                     </connections>
                 </viewController>
@@ -485,6 +535,7 @@
         <image name="Apple_logo_black.svg" width="384" height="384"/>
         <image name="At-sign" width="150" height="150"/>
         <image name="cordova_bot-267x300" width="133" height="150"/>
+        <image name="email-icon--100-flat-vol-2-iconset--graphicloads-18" width="128" height="128"/>
         <image name="firm-case-diplomat-documents-director-512" width="256" height="256"/>
         <image name="icon-person-128" width="64" height="64"/>
         <image name="logo-mtm" width="360" height="125"/>

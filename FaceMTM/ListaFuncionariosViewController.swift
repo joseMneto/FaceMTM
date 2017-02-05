@@ -97,7 +97,6 @@ class ListaFuncionariosViewController: UITableViewController {
                 
                 let funcionario = Funcionario(snapshot: node as! FIRDataSnapshot)
                 listaFuncionarios.append(funcionario)
-                print(funcionario.nome)
             }
             
             self.funcionariosLista = listaFuncionarios

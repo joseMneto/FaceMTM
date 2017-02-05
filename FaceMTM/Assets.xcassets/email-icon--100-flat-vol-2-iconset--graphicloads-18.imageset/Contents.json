@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "google_sign_in_button.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "email-icon--100-flat-vol-2-iconset--graphicloads-18.png",
       "scale" : "2x"
     },
     {

@@ -14,26 +14,38 @@ import FBSDKLoginKit
 class LoginViewController: UIViewController , FBSDKLoginButtonDelegate, GIDSignInUIDelegate, GIDSignInDelegate{
     
     
+    @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var senhaTextField: UITextField!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Facebook Login
+        //Configura Facebook Login
         let loginButtonFB = FBSDKLoginButton()
         view.addSubview(loginButtonFB)
         loginButtonFB.frame = CGRect(x: 16, y: 50, width: view.frame.width - 32, height: 50)
         loginButtonFB.delegate = self
         
         
-        //Google Login
-        
+        //Configura Google Login
         let loginButtonGG = GIDSignInButton()
         view.addSubview(loginButtonGG)
         loginButtonGG.frame = CGRect(x: 16, y: 100, width: view.frame.width - 32, height: 50)
         GIDSignIn.sharedInstance().uiDelegate = self
         GIDSignIn.sharedInstance().delegate = self
         
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        //Verifica se ja existe uma sessão no Facebook
+        if (FBSDKAccessToken.current()) != nil {
+            goToHomeView()
+        }
+        
+        //Verifica sessão do Firebase Email
+        if let user = FIRAuth.auth()?.currentUser {
+            print(user.email!)
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -45,14 +57,23 @@ class LoginViewController: UIViewController , FBSDKLoginButtonDelegate, GIDSignI
     @IBAction func realizarLogin() {
         
         if self.senhaTextField.text == "" {
-            print("Erro Login")
+            let alert = Alert(controller: self)
+            alert.show(message: "Favor digitar uma senha!")
             return
         }
         
-        FIRAuth.auth()?.signIn(withEmail: "dudu@gmail.com", password: self.senhaTextField.text!, completion: { (user, error) in
+        if self.emailTextField.text == "" {
+            let alert = Alert(controller: self)
+            alert.show(message: "Favor digitar um email!")
+            return
+        }
+        
+        FIRAuth.auth()?.signIn(withEmail: self.emailTextField.text!, password: self.senhaTextField.text!, completion: { (user, error) in
             
             if error != nil {
-                print("Login Invalido")
+                let alert = Alert.init(controller: self)
+                alert.show(message: error!.localizedDescription)
+                self.senhaTextField.text = ""
                 return
             }
             
@@ -71,7 +92,8 @@ class LoginViewController: UIViewController , FBSDKLoginButtonDelegate, GIDSignI
     func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
         
         if error != nil {
-            print("Erro Login Facebook")
+            let alert = Alert(controller: self)
+            alert.show(message: error.localizedDescription)
             return
         }
         
