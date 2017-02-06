@@ -44,19 +44,18 @@ class DetalheFuncionarioViewController: UIViewController, MFMailComposeViewContr
     
     func clickTelefone(){
         
-        guard let number = URL(string: "telprompt://"+funcionario.telefone) else {return}
+        guard let number = URL(string: "telprompt://"+funcionario.telefone) else {
+            let alerta = Alert(controller: self)
+            alerta.show(message: "Numero Invalido")
+            return
+        }
         
         if UIApplication.shared.canOpenURL(number) {
             UIApplication.shared.openURL(number)
         } else {
-            let alertaController = UIAlertController(title: "Alerta", message: "Numero Inválido", preferredStyle: .alert)
-            
-            let alertaConfirma = UIAlertAction(title: "OK", style: .default, handler: nil)
-            
-            alertaController.addAction(alertaConfirma)
-            
-            present(alertaController, animated: true, completion: nil)
-            
+            let alerta = Alert(controller: self)
+            alerta.show(message: "Numero Invalido")
+            return
         }
     }
     

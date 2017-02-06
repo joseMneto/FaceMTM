@@ -42,10 +42,7 @@ class LoginViewController: UIViewController , FBSDKLoginButtonDelegate, GIDSignI
             goToHomeView()
         }
         
-        //Verifica sessão do Firebase Email
-        if let user = FIRAuth.auth()?.currentUser {
-            print(user.email!)
-        }
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -98,7 +95,19 @@ class LoginViewController: UIViewController , FBSDKLoginButtonDelegate, GIDSignI
         }
         
         if result.isCancelled != true {
-            goToHomeView()
+            
+            let credential = FIRFacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
+            
+            FIRAuth.auth()?.signIn(with: credential, completion: {(user, error) in
+                if error != nil {
+                    let alert = Alert.init(controller: self)
+                    alert.show(message: error!.localizedDescription)
+                    self.senhaTextField.text = ""
+                    return
+                }
+                
+                self.goToHomeView()
+            })
         }
         
     }
@@ -111,8 +120,19 @@ class LoginViewController: UIViewController , FBSDKLoginButtonDelegate, GIDSignI
             return
         }
         
-        goToHomeView()
+        let authentication = user.authentication
+        let credential = FIRGoogleAuthProvider.credential(withIDToken: (authentication?.idToken)!, accessToken: (authentication?.accessToken)!)
         
+        FIRAuth.auth()?.signIn(with: credential, completion: { (user, error) in
+            if error != nil {
+                let alert = Alert.init(controller: self)
+                alert.show(message: error!.localizedDescription)
+                self.senhaTextField.text = ""
+                return
+            }
+            
+            self.goToHomeView()
+        })
     }
     
     func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
