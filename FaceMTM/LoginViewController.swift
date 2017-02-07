@@ -37,8 +37,9 @@ class LoginViewController: UIViewController , FBSDKLoginButtonDelegate, GIDSignI
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        //Verifica se ja existe uma sessão no Facebook
-        if (FBSDKAccessToken.current()) != nil {
+       
+        // Verifica se o usuario estar logado.
+        if FIRAuth.auth()?.currentUser != nil {
             goToHomeView()
         }
         
